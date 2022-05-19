@@ -28,6 +28,12 @@ function setup() {
   song.loop();
 }
 
+function playSound(){
+  if (!started){
+   song.play();
+  }
+}
+
 function draw() {
   background(0);
 
