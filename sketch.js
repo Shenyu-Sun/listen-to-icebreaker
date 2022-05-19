@@ -25,7 +25,7 @@ function setup() {
   amplitude = new p5.Amplitude();
   fft = new p5.FFT();
   fft.setInput(song);
-  amplitude.setInput(song);s
+  amplitude.setInput(song);å
   song.loop();
 }
 
