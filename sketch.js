@@ -65,9 +65,9 @@ function draw() {
     endShape();
   }
 
-  let level = mic.getLevel();
-  let h=height - amplitude.getLevel()*height;
-  text("ICE BREAKER",h,h);
+  //let level = mic.getLevel();
+  //let h=height - amplitude.getLevel()*height;
+  //text("ICE BREAKER",h,h);
   //let val=slider.value();
   //background(val);
   noFill();
