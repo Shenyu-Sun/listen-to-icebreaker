@@ -20,7 +20,7 @@ function setup() {
   //let mySynth = new p5.MonoSynth();
 
   // This won't play until the context has resumed
-  mySynth.play('song');
+  //mySynth.play('song');
 
   amplitude = new p5.Amplitude();
   fft = new p5.FFT();
