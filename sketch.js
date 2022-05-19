@@ -16,15 +16,11 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  //mic = new p5.AudioIn();
-  //mic.start();
-  //slider = createSlider(0,255,100);
-  //slider.position(10,10);
   amplitude = new p5.Amplitude();
   fft = new p5.FFT();
   fft.setInput(song);
   amplitude.setInput(song);
-  //print(song,sampleRate())
+  
   song.loop();
 }
 
@@ -65,11 +61,7 @@ function draw() {
     endShape();
   }
 
-  //let level = mic.getLevel();
-  //let h=height - amplitude.getLevel()*height;
-  //text("ICE BREAKER",h,h);
-  //let val=slider.value();
-  //background(val);
+  
   noFill();
   stroke(0, 0, 0);
   let spectrum = fft.analyze();
