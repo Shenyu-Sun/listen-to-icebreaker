@@ -7,7 +7,7 @@ let r = 0;
 let r1 = 0;
 
 function preload() {
-  song = loadSound("IcebreakerArrivingHelsinki.m4a");
+  song = loadSound("Tarmo icebreaker (1907) arriving Helsinki.mp3");
   img = loadImage("Icebreaker.png");
   img1 = loadImage("pp1.png");
   img2 = loadImage("pp2.png");
