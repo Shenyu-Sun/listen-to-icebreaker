@@ -16,8 +16,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  mic = new p5.AudioIn();
-  mic.start();
+  //mic = new p5.AudioIn();
+  //mic.start();
   //slider = createSlider(0,255,100);
   //slider.position(10,10);
   amplitude = new p5.Amplitude();
