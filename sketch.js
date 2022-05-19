@@ -16,7 +16,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   // mimics the autoplay policy
-  getAudioContext().suspend();
+  getAudioContext();
   //let mySynth = new p5.MonoSynth();
 
   // This won't play until the context has resumed
@@ -35,11 +35,11 @@ function mousePressed() {
 
 function draw() {
   background(0);
-
   circle(mouseX, mouseY, 10);
 
   let d = fft.getEnergy("bass");
   let f = fft.getEnergy("mid");
+
   push();
   r1 += d/100;
   translate(width / 2, height / 2);
