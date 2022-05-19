@@ -28,11 +28,11 @@ function setup() {
   song.loop();
 }
 
-function playSong(){
-  if (!started){
-   song.play();
-  }
-}
+//function playSong(){
+  //if (!started){
+  // song.play();
+  //}
+//}
 
 function draw() {
   background(0);
