@@ -28,7 +28,7 @@ function setup() {
   song.loop();
 }
 
-function playSound(){
+function playSong(){
   if (!started){
    song.play();
   }
