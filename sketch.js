@@ -1,13 +1,13 @@
 let mic;
 let song;
 let fft;
-let slider;
+//let slider;
 let img;
 let r = 0;
 let r1 = 0;
 
 function preload() {
-  song = loadSound("TarmoIcebreakerArrivingHelsinki.mp3");
+  song = loadSound("IcebreakerArrivingHelsinki.m4a");
   img = loadImage("Icebreaker.png");
   img1 = loadImage("pp1.png");
   img2 = loadImage("pp2.png");
@@ -15,46 +15,52 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  userStartAudio();
+
+  //mic = new p5.AudioIn();
+  //mic.start();
+  //slider = createSlider(0,255,100);
+  //slider.position(10,10);
   amplitude = new p5.Amplitude();
   fft = new p5.FFT();
   fft.setInput(song);
   amplitude.setInput(song);
+  //print(song,sampleRate())
   song.loop();
 }
 
 function draw() {
   background(0);
-  circle(mouseX, mouseY, 10);
 
   let d = fft.getEnergy("bass");
   let f = fft.getEnergy("mid");
-
   push();
-  r1 += d/100;
+  r1 += d / 100;
   translate(width / 2, height / 2);
   rotate(r1);
+  strokeWeight(4);
   line(d, d, f, f);
   pop();
   circle(width / 2, height / 2, f);
   circle(width / 2, height / 2, 150);
-  for (let row = 0; row < 10; row++) {
+
+  for (let row = 0; row < width; row++) {
     beginShape();
     fill(255, 255, 255);
     stroke(255, 50);
 
-    for (let x = 0; x < width; x += 40) {
-      let y = (row * height);
+    for (let x = 0; x < width; x += 100) {
+      let y = (row * height) / 3;
       //circle(x,y,d/10)
       //rect(x, y, d / 10, f / 10);
-      //textSize(10);
-      color(255,255,255,0.5)
-      text("ICE BREAKER",x,y);
     }
     endShape();
   }
 
-  
+  //let level = mic.getLevel();
+  //let h=height - amplitude.getLevel()*height;
+  //text("ICE BREAKER",h,h);
+  //let val=slider.value();
+  //background(val);
   noFill();
   stroke(0, 0, 0);
   let spectrum = fft.analyze();
@@ -68,9 +74,21 @@ function draw() {
 
     stroke(255, 255, 255);
     circle(width / 2, height / 2, y / 2);
+    
+    textAlign(CENTER);
+    textSize(32);
+    text("LISTEN TO ICEBREAKER",mouseX,mouseY)
+    
+    textAlign(LEFT);
+    textSize(10);
+    text("ICE BREAKER", 0, y * 2);
 
+    textAlign(RIGHT);
+    text("ICE BREAKER", width, y * 2);
+
+    color(100, 100, 100, 50);
     //vertex(x,y);
-    point(x, y - width / 2);
+    //point(x, y - width / 2);
   }
   endShape();
 
@@ -83,6 +101,11 @@ function draw() {
   image(img, 0, 0, scale * width, (scale * img.height * width) / img.width);
   pop();
 }
+
+function mousePressed() {
+  userStartAudio();
+}
+
 //function mouseClicked(){
 //saveCanvas('nameofimage','png')
 //}
